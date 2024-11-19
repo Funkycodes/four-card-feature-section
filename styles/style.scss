@@ -1,0 +1,133 @@
+/****** VARIABLES ******/
+$red: hsl(0, 78%, 62%);
+$cyan: hsl(180, 62%, 55%);
+$orange: hsl(34, 97%, 64%);
+$blue: hsl(212, 86%, 64%);
+
+$very-dark-blue: hsl(234, 12%, 34%);
+$grayish-blue: hsl(229, 6%, 66%);
+$very-light-gray: hsl(0, 0%, 98%);
+/****** VARIABLES ******/
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: auto;
+}
+
+body {
+  font-size: 15px;
+  color: $grayish-blue;
+  line-height: 1.6;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $very-light-gray;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: $grayish-blue;
+  margin-block-start: calc(5vh - 1rem);
+
+  &--sub {
+    font-weight: 600;
+    color: $very-dark-blue;
+    margin-block: .5rem;
+  }
+}
+
+
+.titular-desc {
+  max-width: 60ch;
+  text-align: center;
+}
+
+.cards {
+  margin-block-start: 5vh;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  >* {
+    flex: 1;
+  }
+
+  @media (max-width:912px) {
+    flex-flow: column;
+    align-items: stretch;
+  }
+}
+
+.stack {
+  display: flex;
+  flex-flow: column;
+  gap: inherit;
+}
+
+.c-card {
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  gap: .5rem;
+  transition: box-shadow .35s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  max-width: 425px;
+
+  background-color: #fff;
+  border-radius: .5rem;
+  padding: 1.5rem;
+  font-weight: 400;
+
+  @media (hover:hover) {
+    &:hover {
+      box-shadow: 0 1px 42px var(--border-color);
+    }
+  }
+
+  @media (min-width:912px) {
+    max-width: 330px;
+  }
+
+
+  --border-color: #{$cyan};
+  border-top: 3px var(--border-color) solid;
+
+  /** Variant Styles **/
+  &--team-builder {
+    --border-color: #{$red};
+  }
+
+  &--karma {
+    --border-color: #{$orange};
+  }
+
+  &--calculator {
+    --border-color: #{$blue};
+  }
+
+  &__title {
+    font-weight: 600;
+    color: $very-dark-blue;
+  }
+
+
+  &__media {
+    align-self: flex-end;
+    width: 4rem;
+    object-fit: cover;
+  }
+}
